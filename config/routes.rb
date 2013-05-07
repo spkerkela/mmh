@@ -1,7 +1,9 @@
 Moviemarathonhelper::Application.routes.draw do
   
-  resources :testi
+  resources :sessions
   resources :users  
+  root to: 'users#index'
+  match '/logout', to: 'sessions#destroy'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
