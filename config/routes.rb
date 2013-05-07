@@ -2,8 +2,9 @@ Moviemarathonhelper::Application.routes.draw do
   
   resources :sessions
   resources :users  
-  root to: 'users#index'
+  root to: 'static_pages#home'
   match '/logout', to: 'sessions#destroy'
+  match '/help', to: 'static_pages#help'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

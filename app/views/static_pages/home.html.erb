@@ -1,0 +1,9 @@
+<div class="row">
+	<% if current_user %>
+		<h1><%= current_user.name %></h1>
+		<p>Placeholder for logged in home page</p>
+	<% else %>
+			<h1>Welcome to the Movie Marathon Helper</h1>
+			<p>In here you can plan your movie marathons with your friends and review the movies you have already seen!</p>
+	<% end %>
+</div>

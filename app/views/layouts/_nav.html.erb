@@ -2,7 +2,7 @@
  <ul class="title-area">
     <!-- Title Area -->
     <li class="name">
-      <h1><a href="#">Movie Marathon Helper</a></h1>
+      <h1><%= link_to "Movie Marathon Helper", root_path %></h1>
     </li>
     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -17,9 +17,9 @@
     <!-- Right Nav Section -->
     <ul class="right">
    		<li class="divider"></li>
-      <li class="active"><a href="#">Home</a></li>
+      <li><%= link_to "Home", root_path%></li>
       <li class="divider"></li>
-      <li><a href="#">Help</a></li>
+      <li><%= link_to "Help", help_path %></li>
       <li class="divider"></li>
       <li><%= link_to "Marathon Men", users_path %></li>
       <% if current_user %>
@@ -44,6 +44,7 @@
       <li class="has-dropdown"><a href="#">Account</a>
         <ul class="dropdown">
           <li><%= link_to "Log out", logout_path %></li>
+          <li><%= link_to "Edit account", edit_user_path(current_user) %></li>
         </ul>
       </li>
       <% else %>
