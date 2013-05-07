@@ -12,9 +12,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  email: MyString
-  name: MyString
+  email: "mymail@mymail.com"
+  name: "Person one"
 
 two:
-  email: MyString
-  name: MyString
+  email: "myemail@thenewmail.com"
+  name: "Person two"

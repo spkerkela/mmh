@@ -1,15 +1,17 @@
 class UsersController < ApplicationController
 
+	before_filter :find_user, except: [:new, :create, :index]
+
 	def new
-		@user = User.new
+		@user = User.new		
 	end
 
 	def show
-		@user = User.find(params[:id])
+		
 	end
 
 	def edit
-		@user = User.find(params[:id])
+		
 	end
 
 	def create
@@ -24,7 +26,6 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		User.find(params[:id]).destroy
 		flash[:success] = "User deleted"
 		redirect_to users_url
 	end
@@ -42,5 +43,8 @@ class UsersController < ApplicationController
 		@users = User.all
 	end
 
+	def find_user
+		@user = User.find(params[:id])
+	end
 
 end

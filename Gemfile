@@ -26,6 +26,11 @@ group :development do
 	gem 'annotate'	
 end
 
+group :development, :test do
+	gem 'turn'
+	gem 'minitest'
+end
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
