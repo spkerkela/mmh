@@ -1,0 +1,31 @@
+<%= form_for @user do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div>
+		<%= f.label :name %>
+	</div>
+	<div>
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :email %>
+	</div>
+	<div>
+		<%= f.text_field :email %>
+	</div>
+	<div>
+		<%= f.label :password %>
+	</div>
+	<div>
+		<%= f.password_field :password %>
+	</div>
+	<div>
+		<%= f.label :password_confirmation %>
+	</div>
+	<div>
+		<%= f.password_field :password_confirmation %>
+	</div>
+	<div>
+		<!-- using nil here so that the default text appears on the button -->
+		<%= f.submit nil, class: "button"%>
+	</div>
+<% end %>
