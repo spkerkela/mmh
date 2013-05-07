@@ -23,21 +23,22 @@
       <li class="divider"></li>
       <li><%= link_to "Marathon Men", users_path %></li>
       <% if current_user %>
-      <li><a href="#">Movies</a></li>
+      <li><%= link_to "Movies", movies_path %></li>
       <% end %>
       <li class="divider"></li>
       <li class="divider"></li>
       <li class="has-form">
-        <form>
           <div class="row collapse">
             <div class="small-8 columns">
-              <input type="text">
+              <%= form_tag controller:"movies", action: "movie_search" do %>
+                <%= text_field_tag :movie, nil, placeholder: 'Movie title or IMDB id' %>
             </div>
             <div class="small-4 columns">
-              <a href="#" class="alert button">Search</a>
+                <%= submit_tag "Search movie", class: "alert button" %>
             </div>
+            <% end %>
           </div>
-        </form>
+        
       </li>
       <li class="divider show-for-small"></li>
       <% if current_user %>

@@ -1,0 +1,50 @@
+<div class="row">
+	<% if @movie["Response"] == "True" %>
+	<div class="large-3 columns">
+		<img src="<%= @movie['Poster'] %>" >
+	</div>
+	<div class="large-6 columns">
+		<h3>Plot:</h3>
+		<p><%= @movie["Plot"] %></p>
+	</div>
+	<div class="large-3 columns">
+		<h1>Movie info</h1>
+
+		<h3><%= @movie["Title"] %></h3>
+
+		<h3>Directors:</h3>
+		<ul>
+		<% @directors.each do |d| %>
+			<li><%= d %> </li>
+		<% end %>
+		</ul>
+
+		<h3>Writers:</h3>
+		<ul>
+		<% @writers.each do |w| %>
+			<li><%= w %> </li>
+		<% end %>
+		</ul>
+
+		<h3>Actors:</h3>
+		<ul>
+		<% @actors.each do |i| %>
+			<li><%= i %></li>
+		<% end %>
+		</ul>
+
+		<h3>Genres:</h3>
+		<ul>
+		<% @genres.each do |g| %>
+			<li><%= g %> </li>
+		<% end %>
+		</ul>
+		<h3>Runtime:</h3>
+		<p><%= @movie["Runtime"] %></p>
+	</div>
+
+	<% else %>
+		<h2>No matching movie found, sorry.</h2>
+	<% end %>
+
+</div>

@@ -11,10 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507163430) do
+ActiveRecord::Schema.define(:version => 20130507193102) do
 
   create_table "microposts", :force => true do |t|
     t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "movies", :force => true do |t|
+    t.string   "title"
+    t.string   "year"
+    t.string   "rated"
+    t.string   "released"
+    t.string   "runtime"
+    t.string   "genre"
+    t.string   "director"
+    t.string   "writer"
+    t.string   "actors"
+    t.text     "plot"
+    t.float    "imdbrating"
+    t.integer  "imdbvotes"
+    t.string   "imdbid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
