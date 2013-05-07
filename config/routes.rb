@@ -1,4 +1,7 @@
 Moviemarathonhelper::Application.routes.draw do
+  
+  resources :testi
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
