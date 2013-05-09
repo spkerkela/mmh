@@ -22,9 +22,6 @@
 
   <body>
     <%= render 'layouts/nav' %>
-    <% if @mv %>
-      <%= render @mv %>
-    <% end %>
     <% flash.each do |key,value| %>
       <div class="alert-box <%= key %>"><%= value %></div>
     <% end %>
