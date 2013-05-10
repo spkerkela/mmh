@@ -15,6 +15,7 @@ class MicropostTest < ActiveSupport::TestCase
    test "mpost should save with valid params" do
     post = Micropost.new
     post.content = "DERP DERP DERP DERP"
+    post.user_id = 1
     assert post.valid?
     assert post.save
   end
