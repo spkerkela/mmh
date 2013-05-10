@@ -19,7 +19,10 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 		if @user.save
 			flash.now[:success] = "Account created"
-			redirect_to users_path
+			# Log user in after account creation
+			session[:user_id] = @user.id
+
+			redirect_to @user
 		else
 			flash.now[:alert] = "There are some issues with your form"
 			render :new

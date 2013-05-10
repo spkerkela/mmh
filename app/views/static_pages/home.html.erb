@@ -1,7 +1,19 @@
 <div class="row">
 	<% if current_user %>
+	<div class="large-3 columns">
 		<h1><%= current_user.name %></h1>
 		<p>Placeholder for logged in home page</p>
+		<%= render 'shared/micropost_form' %>
+	</div>
+	<div class="large-9 columns">
+		<% if @feed.any?%>
+		<ul class="no-bullet">
+			<%= render @feed %>
+		</ul>
+		<% else %>
+			<h2>No microposts yet.</h2>
+		<% end %>
+	</div>
 	<% else %>
 			<h1>Welcome to the Movie Marathon Helper</h1>
 			<p>In here you can plan your movie marathons with your friends and review the movies you have already seen!</p>

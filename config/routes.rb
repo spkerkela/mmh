@@ -1,8 +1,10 @@
 Moviemarathonhelper::Application.routes.draw do
   
   resources :movies  
-  resources :sessions
-  resources :users  
+  resources :sessions, only: [:new, :create, :destroy] 
+  resources :users
+  resources :microposts, only: [:create, :destroy]
+
   root to: 'static_pages#home'
   match '/search_movie', to: 'movies#movie_search'
   match '/logout', to: 'sessions#destroy'
