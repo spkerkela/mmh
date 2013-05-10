@@ -15,7 +15,7 @@
 one:
   email: "mymail@mymail.com"
   name: "Person one"
-
+  
 two:
   email: "myemail@thenewmail.com"
   name: "Person two"
