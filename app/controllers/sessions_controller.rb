@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
 			redirect_to user
 			flash.now[:success] = "Logged in"
 		else
+			flash.now[:alert] = "Wrong Credentials"
 			render :new
-			flash.now[:error] = "Wrong Credentials"
 		end
 	end
 
