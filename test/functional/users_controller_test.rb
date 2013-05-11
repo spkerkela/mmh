@@ -11,13 +11,14 @@ class UsersControllerTest < ActionController::TestCase
   end
   
   test "should create a user" do
-     
+
       assert_difference "User.count" do
         post :create, user: {name: "new_name", email: "new_email@email.com", password: "12341234",
                       password_confirmation: "12341234"}
       end
       assert_equal "Account created", flash.now[:success]
-      assert :redirect
+      assert_response :redirect
+      assert_redirected_to user_path(assigns(:user))
   end
   
   
