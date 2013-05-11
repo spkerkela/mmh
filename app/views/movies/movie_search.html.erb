@@ -1,6 +1,6 @@
 <div class="row">
 	<% if @movie["Response"] == "True" %>
-	<div class="large-3 columns">
+	<div class="large-4 columns">
 		<div class="poster">
 		<a class="th" href="<%= @movie['Poster'] %>">
 		<img src="<%= @movie['Poster'] %>" >
@@ -12,42 +12,44 @@
 		<p><%= @movie['Year'] %></p>
 		<p><%= @movie["Plot"] %></p>
 	</div>
-	<div class="large-3 columns">
-		<h2>Movie info</h2>
+	<div class="large-2 columns panel">
+		<h2>Info</h2>
 
 		<h3><%= @movie["Title"] %></h3>
-		<h4>Released:</h4>
+		<strong>Released:</strong>
 		<p><%= @movie['Released'] %></p>
 
-		<h4>Directors:</h4>
-		<ul>
+		<strong>Directors:</strong>
+		<ul class="no-bullet">
 		<% @directors.each do |d| %>
 			<li><%= d %> </li>
 		<% end %>
 		</ul>
 
-		<h4>Writers:</h4>
-		<ul>
+		<strong>Writers:</strong>
+		<ul class="no-bullet">
 		<% @writers.each do |w| %>
 			<li><%= w %> </li>
 		<% end %>
 		</ul>
 
-		<h4>Actors:</h4>
-		<ul>
+		<strong>Actors:</strong>
+		<ul class="no-bullet">
 		<% @actors.each do |i| %>
 			<li><%= i %></li>
 		<% end %>
 		</ul>
 
-		<h4>Genres:</h4>
-		<ul>
+		<strong>Genres:</strong>
+		<ul class="no-bullet">
 		<% @genres.each do |g| %>
 			<li><%= g %> </li>
 		<% end %>
 		</ul>
-		<h4>Runtime:</h4>
+		<strong>Runtime:</strong>
 		<p><%= @movie["Runtime"] %></p>
+		<strong>IMDB rating:</strong>
+		<p><%= @movie["imdbRating"] %></p>
 	</div>
 
 	<% else %>
