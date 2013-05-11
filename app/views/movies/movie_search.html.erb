@@ -1,45 +1,52 @@
 <div class="row">
 	<% if @movie["Response"] == "True" %>
 	<div class="large-3 columns">
+		<div class="poster">
+		<a class="th" href="<%= @movie['Poster'] %>">
 		<img src="<%= @movie['Poster'] %>" >
+		</a>
+		</div>
 	</div>
 	<div class="large-6 columns">
-		<h3>Plot:</h3>
+		<h1><%= @movie["Title"] %></h1>
+		<p><%= @movie['Year'] %></p>
 		<p><%= @movie["Plot"] %></p>
 	</div>
 	<div class="large-3 columns">
-		<h1>Movie info</h1>
+		<h2>Movie info</h2>
 
 		<h3><%= @movie["Title"] %></h3>
+		<h4>Released:</h4>
+		<p><%= @movie['Released'] %></p>
 
-		<h3>Directors:</h3>
+		<h4>Directors:</h4>
 		<ul>
 		<% @directors.each do |d| %>
 			<li><%= d %> </li>
 		<% end %>
 		</ul>
 
-		<h3>Writers:</h3>
+		<h4>Writers:</h4>
 		<ul>
 		<% @writers.each do |w| %>
 			<li><%= w %> </li>
 		<% end %>
 		</ul>
 
-		<h3>Actors:</h3>
+		<h4>Actors:</h4>
 		<ul>
 		<% @actors.each do |i| %>
 			<li><%= i %></li>
 		<% end %>
 		</ul>
 
-		<h3>Genres:</h3>
+		<h4>Genres:</h4>
 		<ul>
 		<% @genres.each do |g| %>
 			<li><%= g %> </li>
 		<% end %>
 		</ul>
-		<h3>Runtime:</h3>
+		<h4>Runtime:</h4>
 		<p><%= @movie["Runtime"] %></p>
 	</div>
 
