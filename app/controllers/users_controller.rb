@@ -39,7 +39,8 @@ class UsersController < ApplicationController
 			flash[:success] = "Profile updated"
 			redirect_to @user
 		else
-
+      flash[:alert] = "There are some issues with your form"
+		  render :edit
 		end
 	end
 
