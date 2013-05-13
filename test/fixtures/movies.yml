@@ -18,6 +18,7 @@
 #  imdbid     :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  poster     :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

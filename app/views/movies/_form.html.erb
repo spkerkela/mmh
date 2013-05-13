@@ -1,0 +1,18 @@
+<%= form_for @mv do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<%= f.hidden_field :title, value: @movie["Title"] %>
+	<%= f.hidden_field :writer, value: @movie["Writer"] %>
+	<%= f.hidden_field :director, value: @movie["Director"] %>
+	<%= f.hidden_field :actors, value: @movie["Actors"] %>
+	<%= f.hidden_field :genre, value: @movie["Genre"] %>
+	<%= f.hidden_field :imdbid, value: @movie["imdbID"] %>
+	<%= f.hidden_field :imdbrating, value: @movie["imdbRating"] %>
+	<%= f.hidden_field :plot, value: @movie["Plot"] %>
+	<%= f.hidden_field :rated, value: @movie["Rated"] %>
+	<%= f.hidden_field :released, value: @movie["Released"] %>
+	<%= f.hidden_field :poster, value: @movie["Poster"] %>
+	<%= f.hidden_field :imdbvotes, value: @movie["imdbVotes"] %>
+	<%= f.hidden_field :year, value: @movie["Year"] %>
+	<%= f.hidden_field :runtime, value: @movie["Runtime"] %>
+	<%= f.submit "Add movie to database", class: "button centered" %>
+<% end %>

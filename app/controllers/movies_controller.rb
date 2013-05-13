@@ -3,7 +3,7 @@ require "json"
 
 class MoviesController < ApplicationController
 
-	before_filter :find_movie, except: [:new, :create, :index, :movie_search]
+	before_filter :find_movie, only: [:show, :destroy]
 	skip_before_filter :require_login, only: [:movie_search]
 	def new
 		@movie = Movie.new
@@ -30,12 +30,14 @@ class MoviesController < ApplicationController
 	end
 
 	def destroy
-		flash[:success] = "Movie deleted"
-		redirect_to movies_path
+		if @movie.destroy 
+			flash[:success] = "Movie deleted"
+			redirect_to movies_path
+		end
 	end
 
 	def show
-		
+
 	end
 
 	def create
@@ -61,7 +63,7 @@ class MoviesController < ApplicationController
 	end
 
 	def find_movie
-		@movie = Movie.find(params[:id]).destroy
+		@movie = Movie.find(params[:id])
 	end
 
 	def extract_variables

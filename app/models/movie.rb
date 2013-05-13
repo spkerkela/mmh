@@ -18,10 +18,11 @@
 #  imdbid     :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  poster     :text
 #
 
 class Movie < ActiveRecord::Base
-  attr_accessible :actors, :director, :genre, :imdbid, :imdbrating, :imdbvotes, :plot, :rated, :released, :runtime, :title, :writer, :year
+  attr_accessible :actors, :director, :genre, :imdbid, :imdbrating, :imdbvotes, :plot, :rated, :released, :runtime, :title, :writer, :year, :poster
   validates :title, presence: true, uniqueness: { case_sensitive: false }
   validates :year, presence: true
 

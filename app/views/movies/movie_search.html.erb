@@ -11,6 +11,8 @@
 		<h1><%= @movie["Title"] %></h1>
 		<p><%= @movie['Year'] %></p>
 		<p><%= @movie["Plot"] %></p>
+		<hr>
+		<%= render 'movies/form'  %>
 	</div>
 	<div class="large-2 columns panel">
 		<strong>Released:</strong>
@@ -47,6 +49,7 @@
 		<p><%= @movie["Runtime"] %></p>
 		<strong>IMDB rating:</strong>
 		<p><%= @movie["imdbRating"] %></p>
+
 	</div>
 
 	<% else %>
