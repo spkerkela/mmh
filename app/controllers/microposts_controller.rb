@@ -14,7 +14,7 @@ class MicropostsController < ApplicationController
 			redirect_to root_url
 		else
 			@feed_items = []
-			flash[:alert] = "Your post was empty"
+			flash[:alert] = "Your post was too short or too long"
 			redirect_to root_url
 		end
 	end
