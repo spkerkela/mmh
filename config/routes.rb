@@ -1,7 +1,12 @@
 Moviemarathonhelper::Application.routes.draw do
   
-  resources :movies  
-  resources :sessions, only: [:new, :create, :destroy] 
+  resources :movies do
+    member do
+      get :reviews
+    end
+  end
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :reviews
   resources :users do
     # Allows for routes like /users/1/following
     member do

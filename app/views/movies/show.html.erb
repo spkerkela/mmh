@@ -1,1 +1,6 @@
-<h2><%= @movie.title %></h2>
+<div class="row">
+	<h2><%= @movie.title %></h2>
+	<% if logged_in? %>
+	<%= render 'reviews/form' %>
+	<% end %>
+</div>

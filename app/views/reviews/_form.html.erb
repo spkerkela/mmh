@@ -1,0 +1,13 @@
+<%= form_for(@movie.reviews.build(user_id: current_user.id, movie_id: @movie.id)) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<%= f.hidden_field :user_id %>
+	<%= f.hidden_field :movie_id %>
+	
+	<%= f.label :rating %>
+	<%= number_field_tag :rating, nil, in: 1..10, step: 0.5 %>
+	
+	<%= f.label :content %>
+	<%= f.text_area :content, placeholder: "Write a review.." %>
+	
+	<%= f.submit nil, class: "button success" %>
+<% end %>
