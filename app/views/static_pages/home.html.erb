@@ -2,7 +2,7 @@
 	<% if current_user %>
 	<div class="large-3 columns">
 		<h3><%= current_user.name %></h3>
-		<p>Placeholder for logged in home page</p>
+		<%= render 'users/stats' %>
 		<%= render 'shared/micropost_form' %>
 	</div>
 	<div class="large-9 columns">

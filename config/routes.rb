@@ -2,13 +2,20 @@ Moviemarathonhelper::Application.routes.draw do
   
   resources :movies  
   resources :sessions, only: [:new, :create, :destroy] 
-  resources :users
+  resources :users do
+    # Allows for routes like /users/1/following
+    member do
+      get :following, :followers
+    end
+  end
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   root to: 'static_pages#home'
   match '/search_movie', to: 'movies#movie_search'
   match '/logout', to: 'sessions#destroy'
   match '/help', to: 'static_pages#help'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
