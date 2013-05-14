@@ -1,6 +1,6 @@
 <div class="row">
 	<h2><%= @movie.title %></h2>
 	<% if logged_in? %>
-	<%= render 'reviews/form' %>
+		<%= link_to "Review this movie", new_movie_review_path(@movie) %>
 	<% end %>
 </div>

@@ -1,9 +1,7 @@
 Moviemarathonhelper::Application.routes.draw do
   
   resources :movies do
-    member do
-      get :reviews
-    end
+      resources :reviews
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :reviews

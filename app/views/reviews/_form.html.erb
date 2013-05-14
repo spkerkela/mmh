@@ -1,10 +1,12 @@
-<%= form_for(@movie.reviews.build(user_id: current_user.id, movie_id: @movie.id)) do |f| %>
+<%= form_for(@review) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<%= f.hidden_field :user_id %>
 	<%= f.hidden_field :movie_id %>
 	
 	<%= f.label :rating %>
-	<%= number_field_tag :rating, nil, in: 1..10, step: 0.5 %>
+	<% # This is some coolio magic here. Basically first make a string array from 1 to 10, %>
+	<% # then zip into it another array of pure ints, though i guess using a string array isn't necessary %>
+	<%= f.select :rating, options_for_select((1..10).to_a.zip ('1'..'10').to_a) %>
 	
 	<%= f.label :content %>
 	<%= f.text_area :content, placeholder: "Write a review.." %>
