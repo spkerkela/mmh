@@ -1,6 +1,46 @@
 <div class="row">
-	<h2><%= @movie.title %></h2>
-	<% if logged_in? %>
+	<div class="large-4 columns">
+		<div class="poster">
+		<a class="th" href="<%= @movie.poster %>">
+		<img src="<%= @movie.poster %>" >
+		</a>
+		</div>
+	</div>
+	<div class="large-6 columns">
+		<h1><%= @movie.title %></h1>
+		<p><%= @movie.year %></p>
+		<p><%= @movie.plot %></p>
+		<% if logged_in? %>
 		<%= link_to "Review this movie", new_movie_review_path(@movie) %>
 	<% end %>
+	</div>
+	<div class="large-2 columns panel">
+		<strong>Released:</strong>
+		<p><%= @movie.released %></p>
+
+		<strong>Directors:</strong>
+		<ul class="no-bullet">
+		<li><%= @movie.director %></li>
+		</ul>
+
+		<strong>Writers:</strong>
+		<ul class="no-bullet">
+		<li><%= @movie.writer %></li>
+		</ul>
+
+		<strong>Actors:</strong>
+		<ul class="no-bullet">
+		<li><%= @movie.actors %></li>
+		</ul>
+
+		<strong>Genres:</strong>
+		<ul class="no-bullet">
+		<li><%= @movie.genre %></li>
+		</ul>
+		<strong>Runtime:</strong>
+		<p><%= @movie.runtime %></p>
+		<strong>IMDB rating:</strong>
+		<p><%= @movie.imdbrating %></p>
+
+	</div>
 </div>
