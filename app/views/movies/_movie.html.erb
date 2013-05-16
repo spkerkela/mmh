@@ -1,2 +1,27 @@
-<h3><%= link_to movie.title, movie %></h3>
-<p><%= movie.plot[0..200]%>..</p>
+<h2><%= link_to movie.title, movie %></h2>
+<div>
+	<ul class="small-block-grid-2">
+		<li><%=link_to image_tag(movie.poster), movie %></li>
+		<li><p><%= movie.plot[0..200]%>..</p></li>
+		<li><div class="panel">
+			<strong>Released:</strong>
+		<p><%= movie.released %></p>
+
+		<strong>Directors:</strong>
+		<ul class="no-bullet">
+		<li><%= movie.director %></li>
+		</ul>
+
+		<strong>Writers:</strong>
+		<ul class="no-bullet">
+		<li><%= movie.writer %></li>
+		</ul>
+
+		<strong>Actors:</strong>
+		<ul class="no-bullet">
+		<li><%= movie.actors %></li>
+		</ul>
+		</div>
+		</li>
+	</ul>
+</div>
