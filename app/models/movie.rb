@@ -28,4 +28,16 @@ class Movie < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
 
   default_scope order: 'movies.title ASC'
+
+  def avg_rating
+  	if self.reviews.any?
+  		total = 0
+  		for r in self.reviews do
+  			total += r.rating
+  		end
+  		return total/self.reviews.count
+  	else
+  		return nil
+  	end
+  end
 end

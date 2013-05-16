@@ -1,16 +1,4 @@
 <h2><%= link_to movie.title, movie %>
-	<% if movie.reviews.any? %>
-		<% average = 0.0%>
-		<% num = 0%>
-		<% for review in movie.reviews %>
-			<% average += review.rating%>
-			<% num += 1%>
-	
-		<% end %>
-		<%= average/num %>
-	<% else %>
-		
-	<% end %>
 </h2>
 <div>
 	<ul class="small-block-grid-2">
@@ -33,22 +21,18 @@
 		<strong>Actors:</strong>
 		<ul class="no-bullet">
 		<li><%= movie.actors %></li>
+
+		
 		</ul>
+		<strong>Average rating by marathoners:</strong>
+		<div>
+			<% if not movie.avg_rating.nil? %>
+				<%= movie.avg_rating %>
+			<% else %>
+				This movie has not been reviewed yet.
+			<% end %>
+		</div>
 		</div>
 		</li>
 	</ul>
-	<% if movie.reviews.any? %>
-		<!--
-		<% average = 0.0%>
-		<% num = 0%>
-		<% for review in movie.reviews %>
-			<% average += review.rating%>
-			<% num += 1%>
-	
-		<% end %>
-		<%= average/num %>
-		-->
-	<% else %>
-		<p>This movie has not been reviewed yet.</p>
-	<% end %>
 </div>

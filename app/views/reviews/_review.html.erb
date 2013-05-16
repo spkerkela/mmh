@@ -1,7 +1,7 @@
 
 	<% if review.user.id == current_user.id %>
 		<h3>Your rating: <%= review.rating %></h3>
-		<p><%= link_to review.content, edit_movie_review_path(review.movie,review) %></p>
+		<p><%= link_to review.content, edit_movie_review_path(review.movie,review), title: "Edit your review" %></p>
 	<% else %>
 		<h3>By <%= review.user.name %> Rating: <%= review.rating %></h3>
 		<p><%= review.content %>			
