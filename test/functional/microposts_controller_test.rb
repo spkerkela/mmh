@@ -1,14 +1,7 @@
 require 'test_helper'
 
 class MicropostsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-  
-  
-  
-  
-    def login_as(user)
+  def login_as(user)
     @request.session[:user_id] = user ? user.id : nil
   end
 
@@ -21,7 +14,7 @@ class MicropostsControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
   
-  test "should not create a micropost" do
+  test "should not create an invalid micropost" do
     login_as(users(:one))
     assert_difference('Micropost.count', +0) do
       post :create, micropost: {content: ""}
@@ -30,7 +23,7 @@ class MicropostsControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
   
-  test "should delete micropost" do
+  test "should delete micropost when logged in" do
     login_as(users(:one)) 
     post :create, micropost: {content: microposts(:one).content}
     assert_difference('Micropost.count', -1) do
@@ -42,7 +35,7 @@ class MicropostsControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
 
-  test "should not delete micropost" do 
+  test "should not delete micropost if not logged in" do 
     assert_difference('Micropost.count', -0) do
       delete :destroy, id: microposts(:one).id
     end
