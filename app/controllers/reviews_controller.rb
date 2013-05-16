@@ -26,6 +26,9 @@ class ReviewsController < ApplicationController
 		@review = Review.new(params[:review])
 		if @review.save
 			flash.now[:success] = "Review created"
+
+			movie_name = Movie.find(@review.movie_id).title
+			current_user.microposts.create(content: "#{current_user.name} reviewed #{movie_name} and gave it a rating of #{@review.rating}.")
 			redirect_to movie_path @review.movie_id
 		else
 			flash.now[:alert] = "Creating review failed"
