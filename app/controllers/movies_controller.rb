@@ -38,6 +38,7 @@ class MoviesController < ApplicationController
 
 	def show
 		@review = @movie.reviews.build(user_id: current_user.id, movie_id: @movie.id)
+		@reviews = Review.find(:all, conditions: ["movie_id = ?", @movie.id])
 	end
 
 	def create

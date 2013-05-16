@@ -1,3 +1,9 @@
+<script>
+$(function() {
+	$( "#accordion" ).accordion();
+});
+</script>
+
 <div class="row">
 	<div class="large-4 columns">
 		<div class="poster">
@@ -12,12 +18,22 @@
 		<p><%= @movie.plot %></p>
 		<% if logged_in? %>
 		<hr>
+		
+		<% if @reviews.any? %>
+			<div id="accordion">
+				<%= render @reviews %>
+			</div>
+		<% else %>
 		<div>
 			<%= link_to "Review this movie", new_movie_review_path(@movie) %>
 		</div>
-		<div>
+			<h3>This movie has not been reviewed by anyone yet!</h3>
+		<% end %>
+	<!--	<div>
 			<%= link_to "Show reviews for this movie", movie_reviews_path(@movie) %>
 		</div>
+	-->
+		
 	<% end %>
 	</div>
 	<div class="large-2 columns panel">
