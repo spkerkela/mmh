@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
 	def create
 		@review = Review.new(params[:review])
 		if @review.save
-			flash.now[:success] = "Review created"
+			flash[:success] = "Review created"
 
 			movie_name = Movie.find(@review.movie_id).title
 			current_user.microposts.create(content: "#{current_user.name} reviewed #{movie_name} and gave it a rating of #{@review.rating}.")
@@ -41,10 +41,10 @@ class ReviewsController < ApplicationController
 		@review = Review.find(params[:id])
 
 		if @review.destroy
-			flash.now[:success] = "Review deleted"
+			flash[:success] = "Review deleted"
 			redirect_to @movie
 		else
-			flash.now[:alert] = "Deletion of review failed"
+			flash[:alert] = "Deletion of review failed"
 			redirect_to @movie
 		end
 	end
@@ -55,7 +55,7 @@ class ReviewsController < ApplicationController
 			flash[:success] = "Review updated"
 			redirect_to movie_path @review.movie_id
 		else
-    		flash[:alert] = "There are some issues with your form"
+    		flash.now[:alert] = "There are some issues with your form"
 			render :edit
 		end
 	end
