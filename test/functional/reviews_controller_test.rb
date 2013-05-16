@@ -29,11 +29,10 @@ class ReviewsControllerTest < ActionController::TestCase
   
   test "should create a review" do
     login_as(@user)
- #  review1 = FactoryGirl.create(:review)
- #   post :create, review: {movie_id: review1.movie_id, user_id: review1.user_id, rating: review1.rating, content: review1.content}
-    post :create, review: {movie_id: 1, user_id: 1, rating: 1.5, content: "testireview"}
+    movie = FactoryGirl.create(:movie)
+    post :create, review: {movie_id: movie.id, user_id: @user.id, rating: 1.5, content: "testireview"}
     assert_equal "Review created", flash.now[:success]
-    assert_redirected_to movies_path
+    assert_redirected_to movie
   end
  
   # test "the truth" do
