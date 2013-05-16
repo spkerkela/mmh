@@ -1,7 +1,15 @@
+<script>
+$(function() {
+	$( "#accordion" ).accordion();
+});
+</script>
+
 <div class="row">
 	<h1>Reviews for <%= @movie.title %></h1>
 	<% if @reviews.any? %>
+	<div id="accordion">
 		<%= render @reviews %>
+	</div>
 	<% else %>
 		<h3>This movie has not been reviewed by anyone yet!</h3>
 	<% end %>

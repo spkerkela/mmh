@@ -24,4 +24,13 @@
 		</div>
 		</li>
 	</ul>
+	<% if movie.reviews.any? %>
+		<% for review in movie.reviews %>
+			<h4>By <%= review.user.name %>:</h4>
+			<p><%= review.content %></p>
+			<strong><%= review.rating %></strong>
+		<% end %>
+	<% else %>
+		<p>This movie has not been reviewed yet.</p>
+	<% end %>
 </div>
