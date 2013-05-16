@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
 		@review = Review.new(params[:review])
 		if @review.save
 			flash.now[:success] = "Review created"
-			redirect_to movies_path
+			redirect_to movie_path @review.movie_id
 		else
 			flash.now[:alert] = "Creating review failed"
 			render 'new'
@@ -34,14 +34,23 @@ class ReviewsController < ApplicationController
 	end
 
 	def destroy
-		
+		@movie = Movie.find(params[:movie_id])
+		@review = Review.find(params[:id])
+
+		if @review.destroy
+			flash.now[:success] = "Review deleted"
+			redirect_to @movie
+		else
+			flash.now[:alert] = "Deletion of review failed"
+			redirect_to @movie
+		end
 	end
 
 	def update
-		#@movie = Movie.find(params[:movie_id])
+		#movie = Movie.find(params[:movie_id])
 		if @review.update_attributes(params[:review])
 			flash[:success] = "Review updated"
-			redirect_to movie_reviews_path(@review.movie.id)
+			redirect_to movie_path @review.movie_id
 		else
     		flash[:alert] = "There are some issues with your form"
 			render :edit

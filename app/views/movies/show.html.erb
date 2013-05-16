@@ -18,25 +18,24 @@ $(function() {
 		<p><%= @movie.plot %></p>
 		<% if logged_in? %>
 		<hr>
-		
+
+		<% if @movie.reviewed_by current_user %>
+			<%= link_to "Edit your review", edit_movie_review_path(@movie, @review), class:"button" %>
+			<%= link_to "Remove your review", [@movie, @review], method: :delete, data: {confirm: "Delete review?"}, title: "Your review", class:"button alert"%>
+		<% else %>
+			<%= link_to "Review this movie", new_movie_review_path( @movie ), class:"button" %>
+		<% end %>
 		<% if @reviews.any? %>
 			<div id="accordion">
 				<%= render @reviews %>
 			</div>
 		<% else %>
-		<div>
-			<%= link_to "Review this movie", new_movie_review_path(@movie) %>
-		</div>
 			<h3>This movie has not been reviewed by anyone yet!</h3>
 		<% end %>
-	<!--	<div>
-			<%= link_to "Show reviews for this movie", movie_reviews_path(@movie) %>
-		</div>
-	-->
-		
 	<% end %>
 	</div>
 	<div class="large-2 columns panel">
 		<%= render 'stats' %>
 	</div>
+
 </div>

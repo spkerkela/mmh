@@ -31,13 +31,25 @@ class Movie < ActiveRecord::Base
 
   def avg_rating
   	if self.reviews.any?
-  		total = 0
+  		total = 0.0
   		for r in self.reviews do
-  			total += r.rating
+  			total += r.rating.to_f
   		end
   		return total/self.reviews.count
   	else
   		return nil
   	end
+  end
+
+  def reviewed_by(user)
+    if not self.reviews.any?
+      return false
+    end
+    for r in self.reviews do
+      if r.user_id == user.id and r.movie_id == self.id
+        return true
+      end
+    end
+    return false
   end
 end

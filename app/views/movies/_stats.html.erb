@@ -22,5 +22,11 @@
 </ul>
 <strong>Runtime:</strong>
 <p><%= @movie.runtime %></p>
+
 <strong>IMDB rating:</strong>
 <p><%= @movie.imdbrating %></p>
+
+<% if not @movie.avg_rating.nil?%>
+<strong> Marathoner rating:</strong>
+<p><%= @movie.avg_rating %></p>
+<% end %>
