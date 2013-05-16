@@ -21,32 +21,6 @@
 	<% end %>
 	</div>
 	<div class="large-2 columns panel">
-		<strong>Released:</strong>
-		<p><%= @movie.released %></p>
-
-		<strong>Directors:</strong>
-		<ul class="no-bullet">
-		<li><%= @movie.director %></li>
-		</ul>
-
-		<strong>Writers:</strong>
-		<ul class="no-bullet">
-		<li><%= @movie.writer %></li>
-		</ul>
-
-		<strong>Actors:</strong>
-		<ul class="no-bullet">
-		<li><%= @movie.actors %></li>
-		</ul>
-
-		<strong>Genres:</strong>
-		<ul class="no-bullet">
-		<li><%= @movie.genre %></li>
-		</ul>
-		<strong>Runtime:</strong>
-		<p><%= @movie.runtime %></p>
-		<strong>IMDB rating:</strong>
-		<p><%= @movie.imdbrating %></p>
-
+		<%= render 'stats' %>
 	</div>
 </div>
