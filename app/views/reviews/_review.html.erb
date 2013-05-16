@@ -1,0 +1,12 @@
+<div class="panel">
+	<% if review.user.id == current_user.id %>
+		<h3>Your review</h3>
+	<% else %>
+		<h3>By <%= review.user.name %></h3>
+	<% end %>
+		<p><%= review.content %></p>
+		<strong>Rating: <%= review.rating %></strong>
+	<% if review.user.id == current_user.id %>
+		<div><%= link_to "Edit your review", edit_movie_review_path(review.movie,review) %></div>
+	<% end %>
+</div>

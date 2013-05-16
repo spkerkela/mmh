@@ -38,7 +38,14 @@ class ReviewsController < ApplicationController
 	end
 
 	def update
-		
+		#@movie = Movie.find(params[:movie_id])
+		if @review.update_attributes(params[:review])
+			flash[:success] = "Review updated"
+			redirect_to movie_reviews_path(@review.movie.id)
+		else
+    		flash[:alert] = "There are some issues with your form"
+			render :edit
+		end
 	end
 
 	private

@@ -11,8 +11,13 @@
 		<p><%= @movie.year %></p>
 		<p><%= @movie.plot %></p>
 		<% if logged_in? %>
-		<%= link_to "Review this movie", new_movie_review_path(@movie) %>
-		<%= link_to "Show reviews for this movie", movie_reviews_path(@movie) %>
+		<hr>
+		<div>
+			<%= link_to "Review this movie", new_movie_review_path(@movie) %>
+		</div>
+		<div>
+			<%= link_to "Show reviews for this movie", movie_reviews_path(@movie) %>
+		</div>
 	<% end %>
 	</div>
 	<div class="large-2 columns panel">

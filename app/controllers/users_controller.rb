@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 			# Log user in after account creation
 			session[:user_id] = @user.id
 
-			redirect_to @user
+			redirect_to root_path
 		else
 			flash.now[:alert] = "There are some issues with your form"
 			render :new
@@ -39,8 +39,8 @@ class UsersController < ApplicationController
 			flash[:success] = "Profile updated"
 			redirect_to @user
 		else
-      flash[:alert] = "There are some issues with your form"
-		  render :edit
+    		flash[:alert] = "There are some issues with your form"
+			render :edit
 		end
 	end
 

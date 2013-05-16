@@ -18,7 +18,7 @@ class UsersControllerTest < ActionController::TestCase
       end
       assert_equal "Account created", flash.now[:success]
       assert_response :redirect
-      assert_redirected_to user_path(assigns(:user))
+      assert_redirected_to root_url
   end
   
   
