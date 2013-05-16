@@ -1,0 +1,8 @@
+<h1>Reviews for <%= @movie.title %></h1>
+<% for review in @reviews %>
+	<div class="panel">
+		<h3>By <%= review.user.name %></h3>
+		<p><%= review.content %></p>
+		<strong>Rating: <%= review.rating %></strong>
+	</div>
+<% end %>

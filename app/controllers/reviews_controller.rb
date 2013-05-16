@@ -2,6 +2,13 @@ class ReviewsController < ApplicationController
 
 	before_filter :find_review, except: [:new, :create, :index]
 	#before_filter :find_movie, only: [:new]
+
+	def index
+		@movie = Movie.find(params[:movie_id])
+		@reviews = Review.find(:all, conditions: ["movie_id = ?", params[:movie_id]])
+		
+	end
+
 	def new
 		@movie = Movie.find(params[:movie_id])
 		@review = @movie.reviews.new(user_id: current_user.id)
