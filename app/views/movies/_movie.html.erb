@@ -1,4 +1,17 @@
-<h2><%= link_to movie.title, movie %></h2>
+<h2><%= link_to movie.title, movie %>
+	<% if movie.reviews.any? %>
+		<% average = 0.0%>
+		<% num = 0%>
+		<% for review in movie.reviews %>
+			<% average += review.rating%>
+			<% num += 1%>
+	
+		<% end %>
+		<%= average/num %>
+	<% else %>
+		
+	<% end %>
+</h2>
 <div>
 	<ul class="small-block-grid-2">
 		<li><%=link_to image_tag(movie.poster), movie %></li>
@@ -25,11 +38,16 @@
 		</li>
 	</ul>
 	<% if movie.reviews.any? %>
+		<!--
+		<% average = 0.0%>
+		<% num = 0%>
 		<% for review in movie.reviews %>
-			<h4>By <%= review.user.name %>:</h4>
-			<p><%= review.content %></p>
-			<strong><%= review.rating %></strong>
+			<% average += review.rating%>
+			<% num += 1%>
+	
 		<% end %>
+		<%= average/num %>
+		-->
 	<% else %>
 		<p>This movie has not been reviewed yet.</p>
 	<% end %>
