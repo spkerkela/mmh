@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20130514192206) do
     t.integer  "user_id"
   end
 
+  add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
+
   create_table "movies", :force => true do |t|
     t.string   "title"
     t.string   "year"
