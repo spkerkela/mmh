@@ -20,6 +20,9 @@
 #  updated_at :datetime         not null
 #  poster     :text
 #
+require "pp"
+require "json"
+
 
 class Movie < ActiveRecord::Base
   attr_accessible :actors, :director, :genre, :imdbid, :imdbrating, :imdbvotes, :plot, :rated, :released, :runtime, :title, :writer, :year, :poster
@@ -51,5 +54,28 @@ class Movie < ActiveRecord::Base
       end
     end
     return false
+  end
+
+  def Movie.add_from_id id
+    url_w_id = URI.encode("http://www.omdbapi.com/?i=#{id}&plot=full")
+    temp_movie = JSON.parse HTTParty.get(url_w_id).response.body
+    if temp_movie["Response"] == "True"
+      new_movie = Movie.new
+      new_movie.title = temp_movie["Title"]
+      new_movie.writer =  temp_movie["Writer"]
+      new_movie.director = temp_movie["Director"]
+      new_movie.actors = temp_movie["Actors"]
+      new_movie.genre = temp_movie["Genre"]
+      new_movie.imdbid = temp_movie["imdbID"]
+      new_movie.imdbrating = temp_movie["imdbRating"]
+      new_movie.plot = temp_movie["Plot"]
+      new_movie.rated = temp_movie["Rated"]
+      new_movie.released = temp_movie["Released"]
+      new_movie.poster = temp_movie["Poster"]
+      new_movie.imdbvotes = temp_movie["imdbVotes"]
+      new_movie.year = temp_movie["Year"]
+      new_movie.runtime = temp_movie["Runtime"]
+      new_movie.save
+    end
   end
 end
