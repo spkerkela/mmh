@@ -15,7 +15,7 @@ class RelationshipsControllerTest < ActionController::TestCase
     assert_difference('Relationship.count') do
       post :create, :relationship => {followed_id: @followed.id}
     end
-    #assert_redirected_to users_path(assigns(:user))
+    assert_redirected_to users_path(assigns(:user))
   end
 
   test "should delete relationship" do
