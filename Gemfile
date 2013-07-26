@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
-
+ruby '1.9.3'
 gem 'rails', '3.2.11'
 gem 'bcrypt-ruby'
 gem 'httparty'
 gem 'factory_girl_rails', "~> 4.0"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -27,9 +28,8 @@ group :development do
 	gem 'annotate'	
 end
 
-gem :production do
+group :production do
 	gem 'pg', '0.15.1'
-	gem 'rails_l2factor', '0.0.2'
 end
 
 group :development, :test do
