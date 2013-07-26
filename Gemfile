@@ -27,6 +27,11 @@ group :development do
 	gem 'annotate'	
 end
 
+gem :production do
+	gem 'pg', '0.15.1'
+	gem 'rails_l2factor', '0.0.2'
+end
+
 group :development, :test do
 	gem 'turn'
 	gem 'minitest'
