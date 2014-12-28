@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.0.0'
 gem 'rails', '3.2.11'
 gem 'bcrypt-ruby'
 gem 'httparty'
@@ -25,12 +25,12 @@ group :assets do
 end
 
 group :development do
-	gem 'annotate'	
+	gem 'annotate'
   gem 'sqlite3'
 end
 
 group :production do
-	gem 'pg', '0.15.1'
+	gem 'pg', '~> 0.15.1'
 end
 
 group :development, :test do
