@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.7.6'
-gem 'rails', '3.2.22.5'
+gem 'rails', '7.0.4'
 gem 'bcrypt-ruby'
 gem 'httparty'
 gem 'factory_girl_rails', "~> 4.0"
