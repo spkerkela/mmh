@@ -83,7 +83,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
-    date (0.0.1)
+    date (3.3.3)
     erubi (1.11.0)
     execjs (2.8.1)
     factory_girl (4.9.0)
